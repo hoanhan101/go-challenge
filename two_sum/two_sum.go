@@ -53,3 +53,18 @@ func twoSumII(nums []int, target int) []int {
 	// Return [0, 0] if cannot find any.
 	return []int{0, 0}
 }
+
+// twoSumIIBS takes a sorted array of integers and a target integer number.
+// Since all solution above cost us O(n) extra space, we can do better by using binary search.
+// For each element x, we could look up the if target - x exists by applying the binary search over
+// the sorted array.
+// Time complexity: O(n log n)
+// Space complexity: O(1)
+func twoSumIIBS(nums []int, target int) bool {
+	for _, num := range nums {
+		if binarySearch(nums, target-num) == true {
+			return true
+		}
+	}
+	return false
+}

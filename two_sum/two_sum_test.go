@@ -67,3 +67,32 @@ func TestTwoSumII(t *testing.T) {
 		}
 	}
 }
+
+func TestTwoSumIIBS(t *testing.T) {
+	tests := [][]int{
+		[]int{2, 7, 11, 15},
+		[]int{0, 3, 4, 7, 9, 10},
+		[]int{1, 2, 8, 10},
+	}
+
+	targets := []int{
+		9,
+		19,
+		100,
+	}
+
+	expectedResults := []bool{
+		true,
+		true,
+		false,
+	}
+
+	for i := range tests {
+		result := twoSumIIBS(tests[i], targets[i])
+		if expectedResults[i] == result {
+			t.Logf("\t%s\tCase: %v\tTarget: %v\tResult: %v", succeed, tests[i], targets[i], result)
+		} else {
+			t.Errorf("\t%s\tCase: %v\tTarget: %v\tResult: %v", failed, tests[i], targets[i], result)
+		}
+	}
+}
